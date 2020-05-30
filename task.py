@@ -1,3 +1,23 @@
+# -----------------
+# Function 1
+# -----------------
+
+def conv_num(num_str):
+    if num_str.isdigit():
+        return True
+    if num_str.count('.') == 1:
+        return True
+    if num_str.startswith('0x', 0, 2):
+        return True
+    if num_str.startswith('-0x', 0, 3):
+        return True
+
+    return None
+
+# -----------------
+# Function 2
+# -----------------
+
 mon_list = {'1': 31, '2': 28, '3': 31, '4': 30, '5': 31, '6': 30,
             '7': 31, '8': 31, '9': 30, '10': 31, '11': 30, '12': 31}
 
