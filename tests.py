@@ -11,6 +11,10 @@ class TestCase(unittest.TestCase):
     def test2(self):
         test_num = '123.45'
         self.assertTrue(conv_num(test_num), 123.45)
+    
+    def test3(self):
+        test_num = '.45'
+        self.assertTrue(conv_num(test_num), .45)
        
 if __name__ == "__main__":
     unittest.main()
