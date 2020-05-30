@@ -9,7 +9,6 @@ def conv_int(int_str):
     num = 0
     for digit in int_str:
         num = 10 * num + digits[digit]
-
     return num
 
 
@@ -22,12 +21,11 @@ def conv_float(fl_str):
     decimal = conv_int(fl_str[dec_idx + 1:len(fl_str)]) / (10 ** len_dec)
 
     num = whole_number + decimal
-
     return num
 
 
 def conv_hex(hex_str):
-    # This function convert hexdecimal to decimal number
+    # This function convert hexdecimal string to decimal number
     num = 0
     for i in range(len(hex_str)):
         if hex_str[i] not in hex_dig:
@@ -42,6 +40,8 @@ def conv_hex(hex_str):
 
 
 def conv_num(num_str):
+    # This is the main function 1
+    # It will take string, and convert to int, float, and hexdecimal
     if num_str.isdigit():
         return conv_int(num_str)
     if num_str.count('.') == 1:
@@ -49,8 +49,7 @@ def conv_num(num_str):
     if num_str.startswith('0x', 0, 2) and len(num_str) > 2:
         return conv_hex(num_str[2:len(num_str)])
     if num_str.startswith('-0x', 0, 3) and len(num_str) > 3:
-        return -conv_hex(num_str[3:len(num_str)])
-
+        return -conv_hex(num_str[3:len(num_str)])   
     return None
 
 # -----------------
