@@ -19,7 +19,11 @@ class TestCase(unittest.TestCase):
     def test4(self):
         test_num = '0xAD4'
         self.assertEqual(2772, conv_num(test_num))
-       
+        
+    def test5(self):
+        test_num = '-0xFF'
+        self.assertEqual(conv_num(test_num), -255)      
+    
     
 if __name__ == "__main__":
     unittest.main()
