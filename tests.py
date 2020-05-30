@@ -24,6 +24,21 @@ class TestCase(unittest.TestCase):
         test_num = '-0xFF'
         self.assertEqual(conv_num(test_num), -255)      
     
+    def test6(self):
+        test_num = '12345A'
+        self.assertEqual(conv_num(test_num), None)
+
+    def test7(self):
+        test_num = '12.3.45'
+        self.assertEqual(conv_num(test_num), None)
+        
+    def test8(self):
+        test_num = ''
+        self.assertEqual(conv_num(test_num), None)
+
+    def test9(self):
+        test_num = '-'
+        self.assertEqual(conv_num(test_num), None)
     
 if __name__ == "__main__":
     unittest.main()
