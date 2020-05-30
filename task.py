@@ -2,9 +2,20 @@
 # Function 1
 # -----------------
 
+digits = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, }
+
+
+def conv_int(int_str):
+    # This function convert string to integer
+    num = 0
+    for digit in int_str:
+        num = 10 * num + digits[digit]
+
+    return num
+
 def conv_num(num_str):
     if num_str.isdigit():
-        return True
+        return conv_int(num_str)
     if num_str.count('.') == 1:
         return True
     if num_str.startswith('0x', 0, 2):
