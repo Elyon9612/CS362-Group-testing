@@ -45,9 +45,9 @@ def conv_num(num_str):
     if num_str.isdigit():
         return conv_int(num_str)
     if num_str.count('.') == 1:
-        return True
+        return conv_float(num_str)
     if num_str.startswith('0x', 0, 2):
-        return True
+        return conv_hex(num_str[2:len(num_str)])
     if num_str.startswith('-0x', 0, 3):
         return True
 
