@@ -4,7 +4,8 @@ import unittest
 class TestCase(unittest.TestCase):
 
     def test1(self):
-        self.assertTrue(True)
+        test_num = '12345'
+        self.assertEqual(12345, conv_num(test_num))
 
 
 if __name__ == "__main__":
