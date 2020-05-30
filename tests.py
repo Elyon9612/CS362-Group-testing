@@ -39,6 +39,15 @@ class TestCase(unittest.TestCase):
     def test9(self):
         test_num = '-'
         self.assertEqual(conv_num(test_num), None)
-    
+
+    def test10(self):
+        test_num = '1.'
+        self.assertEqual(conv_num(test_num), 1.)
+
+    def test11(self):
+        test_num = '.1'
+        self.assertEqual(conv_num(test_num), .1)
+        
+        
 if __name__ == "__main__":
     unittest.main()
