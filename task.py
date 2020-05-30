@@ -2,7 +2,8 @@
 # Function 1
 # -----------------
 
-hex_dig = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9,
+hex_dig = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4,
+           '5': 5, '6': 6, '7': 7, '8': 8, '9': 9,
            'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15}
 
 
@@ -51,7 +52,7 @@ def conv_num(num_str):
     if num_str.startswith('0x', 0, 2) and len(num_str) > 2:
         return conv_hex(num_str[2:len(num_str)])
     if num_str.startswith('-0x', 0, 3) and len(num_str) > 3:
-        return -conv_hex(num_str[3:len(num_str)])   
+        return -conv_hex(num_str[3:len(num_str)])
     return None
 
 # -----------------
