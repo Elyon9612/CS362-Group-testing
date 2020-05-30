@@ -4,12 +4,23 @@
 
 digits = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, }
 
-
 def conv_int(int_str):
     # This function convert string to integer
     num = 0
     for digit in int_str:
         num = 10 * num + digits[digit]
+
+    return num
+
+def conv_float(fl_str):
+    # This function convert string to float point number
+    dec_idx = fl_str.index('.')
+    len_dec = len((fl_str[dec_idx + 1:len(fl_str)]))
+
+    whole_number = conv_int(fl_str[0:dec_idx])
+    decimal = conv_int(fl_str[dec_idx + 1:len(fl_str)]) / (10 ** len_dec)
+
+    num = whole_number + decimal
 
     return num
 
