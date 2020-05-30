@@ -6,7 +6,7 @@ class TestCase(unittest.TestCase):
 
     def test1(self):
         test_num = '12345'
-        self.assertTrue(conv_num(test_num), 12345)
+        self.assertEqual(12345, conv_num(test_num))
    
     def test2(self):
         test_num = '123.45'
