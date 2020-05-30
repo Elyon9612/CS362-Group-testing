@@ -49,7 +49,7 @@ def conv_num(num_str):
     if num_str.startswith('0x', 0, 2):
         return conv_hex(num_str[2:len(num_str)])
     if num_str.startswith('-0x', 0, 3):
-        return True
+        return -conv_hex(num_str[3:len(num_str)])
 
     return None
 
