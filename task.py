@@ -12,6 +12,7 @@ def conv_int(int_str):
 
     return num
 
+
 def conv_float(fl_str):
     # This function convert string to float point number
     dec_idx = fl_str.index('.')
@@ -23,6 +24,22 @@ def conv_float(fl_str):
     num = whole_number + decimal
 
     return num
+
+
+def conv_hex(hex_str):
+    # This function convert hexdecimal to decimal number
+    num = 0
+    for i in range(len(hex_str)):
+        if hex_str[i] not in hex_dig:
+            return None
+
+        power = 16 ** (len(hex_str)-i-1)
+        if (len(hex_str)-i) == 0:
+            power = 1
+
+        num += hex_dig[hex_str[i]] * power
+    return num
+
 
 def conv_num(num_str):
     if num_str.isdigit():
