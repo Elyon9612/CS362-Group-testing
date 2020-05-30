@@ -9,7 +9,7 @@ def conv_int(int_str):
     # This function convert string to integer
     num = 0
     for digit in int_str:
-        num = 10 * num + digits[digit]
+        num = 10 * num + hex_dig[digit]
     return num
 
 
