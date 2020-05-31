@@ -69,50 +69,71 @@ def check_year(year):
         if(year % 100) == 0:
             if(year % 400) == 0:
                 return True
+            else:
+                return False
+        else:
+            return True
     return False
 
 
-def inside_loop(num_sec, day, month, year):
+def inside_loop(n, a, b, c):
+    global num_sec
+    num_sec = n
+    global day
+    day = a
+    global month
+    month = b
+    global year
+    year = c
     if check_year(year) is True:
-        if num_sec > 31622400:
-            num_sec -= 31622400
+        if num_sec >= 31622400:
+            num_sec = num_sec - 31622400
             year += 1
-        mon_day = mon_list.get(str(month))
-        if mon_day == 2:
-            mon_sec = (mon_day+1)*86400
         else:
-            mon_sec = mon_day*86400
-        if num_sec > mon_sec:
-            num_sec -= mon_sec
-            month += 1
-        if num_sec >= 86400:
-            num_sec -= 86400
-            day += 1
+            mon_day = mon_list.get(str(month))
+            if mon_day == 2:
+                mon_sec = (mon_day+1)*86400
+            else:
+                mon_sec = mon_day*86400
+
+            if num_sec > mon_sec:
+                num_sec -= mon_sec
+                month += 1
+            else:
+                if num_sec >= 86400:
+                    num_sec -= 86400
+                    day += 1
     else:
-        if num_sec > 31536000:
-            num_sec -= 31536000
+        if num_sec >= 31536000:
+            num_sec = num_sec - 31536000
             year += 1
-        mon_day = mon_list.get(str(month))
-        mon_sec = mon_day*86400
-        if num_sec > mon_sec:
-            num_sec -= mon_sec
-            month += 1
-        if num_sec >= 86400:
-            num_sec -= 86400
-            day += 1
+        else:
+            mon_day = mon_list.get(str(month))
+            mon_sec = mon_day*86400
+            if num_sec > mon_sec:
+                num_sec -= mon_sec
+                month += 1
+            else:
+                if num_sec >= 86400:
+                    num_sec -= 86400
+                    day += 1
 
 
-def my_datetime(num_sec):
+def my_datetime(n):
+    global num_sec
+    num_sec = n
     s = '-'
+    global day
     day = 1
+    global month
     month = 1
+    global year
     year = 1970
     if num_sec == 0:
         result = str(month) + s + str(day) + s + str(year)
     else:
         while(num_sec >= 86400):
             inside_loop(num_sec, day, month, year)
-
         if month < 10:
             result = '0' + str(month) + s
         else:
