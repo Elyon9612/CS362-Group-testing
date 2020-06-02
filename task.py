@@ -144,3 +144,77 @@ def my_datetime(n):
             result = result + str(day) + s
         result += str(year)
     return result
+
+# -----------------
+# Function 3
+# -----------------
+
+
+def conv_endian(num, endian='big'):
+    if endian == 'big' or endian == 'little':
+        positive = True
+        # check negative or positive
+        if num < 0:
+            positive = False
+            num = -num
+        result = hexReturn(num)
+        # each byte must be two characters in length
+        if len(result) % 2 != 0:
+            result = '0' + result
+        # big or little endian
+        result = styleForm(result, endian)
+        if positive is True:
+            return result
+        else:
+            return "-" + result
+    else:
+        return None
+
+
+def styleForm(result, endian):
+    res = ''
+    array = []
+    tmp = ''
+    normal = space(result)
+    # break sting into array
+    for a in normal:
+        if a == ' ':
+            array.append(tmp)
+            tmp = ''
+        else:
+            tmp += a
+    if tmp:
+        array.append(tmp)
+    # merge the array
+    if endian == 'little':
+        for x in array:
+            res = str(x) + ' ' + res
+    elif endian == 'big':
+        res = normal
+    return res
+
+
+def space(result):
+    # separated by a space
+    res = ''
+    for x in range(len(result)):
+        if (x % 2 != 0) or (x == 0):
+            res = res + result[x]
+        elif x % 2 == 0:
+            res = res + ' ' + result[x]
+    return res
+
+
+# give the hexadecimal number in big endian
+def hexReturn(num):
+    result = ""
+    if int(num) == 0:
+        result = 0
+    while num != 0:
+        remainder = int(int(num) % 16)
+        num = (int(num)-remainder) / 16
+        if remainder >= 10:
+            # transform the number to character
+            remainder = chr(remainder + 55)
+        result = str(remainder) + result
+    return result
